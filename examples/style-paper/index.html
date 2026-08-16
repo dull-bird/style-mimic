@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一题十一声：style-mimic 多文风论文教学展示">
+  <title>文体实验室 · 一题十一声</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <div class="eyebrow"><span class="signal-dot"></span> STYLE-MIMIC / FIELD NOTE 01</div>
+      <div class="masthead-row">
+        <div>
+          <p class="kicker">文体实验室</p>
+          <h1>一题<br><em>十一声</em></h1>
+          <p class="dek">同一篇关于风格的论文，换十一种说话方式。<br>内容保持，声纹移动。</p>
+        </div>
+        <div class="hero-note" aria-label="核心主张">
+          <span class="note-label">THESIS / 01</span>
+          <p>文风不是滤镜。<br><strong>它是一组可复核的选择分布。</strong></p>
+          <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="masthead-meta">
+        <span>11 voices</span><span>5 shared units</span><span>1 semantic spine</span><span>offline edition</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro-band" aria-labelledby="intro-title">
+        <div>
+          <span class="section-label">READING INSTRUCTIONS</span>
+          <h2 id="intro-title">先选一个声音，<br>再看同一个意思如何转身。</h2>
+        </div>
+        <p>这是教学用的文风实验，不是作者认证。每个版本保留相同的摘要、方法、案例、限制与结论，只改变词汇、句法、节奏、修辞和与读者的距离。指标是线索，证据仍在句子里。</p>
+      </section>
+
+      <section class="controls" aria-label="筛选与操作">
+        <div class="filter-group">
+          <label for="language-filter">语言</label>
+          <select id="language-filter">
+            <option value="all">全部语言</option>
+            <option value="中文">中文</option>
+            <option value="English">English</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="era-filter">时代</label>
+          <select id="era-filter"><option value="all">全部时代</option></select>
+        </div>
+        <div class="filter-group search-group">
+          <label for="voice-search">查找声音</label>
+          <input id="voice-search" type="search" placeholder="作者或文体" autocomplete="off">
+        </div>
+        <a class="pdf-link" href="tex/style-mimic-paper.pdf" target="_blank" rel="noopener">打开完整 PDF <span>↗</span></a>
+      </section>
+
+      <section class="voice-section" aria-labelledby="voices-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">THE VOICES</span>
+            <h2 id="voices-title">选择一个声部</h2>
+          </div>
+          <span id="voice-count" class="result-count" aria-live="polite"></span>
+        </div>
+        <div id="voice-grid" class="voice-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>没有匹配的声部。换一个语言、时代或关键词试试。</div>
+      </section>
+
+      <section id="voice-detail" class="detail-section" aria-labelledby="detail-title" hidden>
+        <div class="detail-topline">
+          <div>
+            <span id="detail-meta" class="section-label"></span>
+            <h2 id="detail-title"></h2>
+          </div>
+          <div class="detail-actions">
+            <button id="copy-button" class="button button-dark" type="button">复制当前单元</button>
+            <span id="copy-status" class="copy-status" role="status"></span>
+          </div>
+        </div>
+        <p id="detail-disclaimer" class="disclaimer"></p>
+        <div class="detail-layout">
+          <aside class="profile-rail">
+            <span class="section-label">VOICE PROFILE</span>
+            <p id="detail-accent" class="accent-copy"></p>
+            <div id="metric-list" class="metric-list"></div>
+          </aside>
+          <article class="reading-panel">
+            <nav id="section-tabs" class="section-tabs" aria-label="论文单元"></nav>
+            <div class="reading-kicker"><span id="reading-index"></span><span id="reading-label"></span></div>
+            <div id="reading-text" class="reading-text" lang="zh-CN"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>STYLE-MIMIC</strong> / 文体是分布，不是身份标签。</p>
+      <p>教学仿写 · 离线展示 · <a href="../../README.md">查看框架说明</a></p>
+    </footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
