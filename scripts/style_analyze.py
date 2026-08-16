@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""style_analyze.py — 文体计量分析（中英文，纯标准库）
+"""style_analyze.py — 文体计量分析（中英文，jieba 可选）
 
 对一个或多个文本文件输出定量文体指标报告（Markdown 或 JSON）。
 指标框架见 references/style-dimensions.md；主要依据：
@@ -13,8 +13,16 @@
   python3 style_analyze.py file.txt --json                      # JSON
   python3 style_analyze.py sample.txt draft.txt --compare       # 双文本偏差对照
 """
-import re, sys, json, math, argparse
+import re, sys, json, math, argparse, logging, warnings
 from collections import Counter
+
+try:  # Optional: improves Chinese lexical measures without making it a dependency.
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore')
+        import jieba  # type: ignore
+    jieba.setLogLevel(logging.ERROR)
+except Exception:  # pragma: no cover - exercised on minimal installations
+    jieba = None
 
 # ── 标记词表（按文献分类）────────────────────────────────────────────
 ZH = {
@@ -47,8 +55,21 @@ ZH_FUNC_CHARS = set('的了是在我不有和人这中大为上个国他以要�
 
 
 def detect_lang(text):
+    """Return the dominant script without a brittle absolute-size cutoff.
+
+    The old ``cjk > 50`` rule classified short Chinese notes (including a
+    one-sentence draft) as English and then silently reported zero units.
+    Pure-script short inputs are unambiguous; for mixed inputs the script with
+    the larger count wins, with a small tie-break in favour of Chinese because
+    Chinese does not use whitespace tokenisation.
+    """
     cjk = len(re.findall(r'[一-鿿]', text))
-    return 'zh' if cjk > max(50, 0.1 * len(re.findall(r'[a-zA-Z]', text))) else 'en'
+    latin = len(re.findall(r'[a-zA-Z]', text))
+    if cjk == 0:
+        return 'en'
+    if latin == 0:
+        return 'zh'
+    return 'zh' if cjk >= latin else 'en'
 
 
 def split_sentences(text, lang):
@@ -71,6 +92,13 @@ def units_of(text, lang):
     return re.findall(r"[a-zA-Z']+", text.lower())
 
 
+def zh_tokens(text):
+    """Return Chinese word tokens when jieba is available, else characters."""
+    if jieba is not None:
+        return [w for w in jieba.lcut(text) if re.search(r'[一-鿿]', w)]
+    return re.findall(r'[一-鿿]', text)
+
+
 def sent_len(s, lang):
     if lang == 'zh':
         return len(re.findall(r'[一-鿿]', s))
@@ -78,8 +106,8 @@ def sent_len(s, lang):
 
 
 def clauses_per_sentence(sents, lang):
-    """每句小句数：zh 以 ，、；： 计分断；en 以 , ; : 加分句连词近似。"""
-    marks = '，、；：' if lang == 'zh' else ',;:'
+    """每句小句数近似；中文顿号是枚举标记，不算小句边界。"""
+    marks = '，；：' if lang == 'zh' else ',;:'
     vals = []
     for s in sents:
         n = sum(s.count(m) for m in marks)
@@ -101,12 +129,14 @@ def marker_counts(text, lang):
     out = {}
     hay = text if lang == 'zh' else ' ' + re.sub(r'\s+', ' ', text.lower()) + ' '
     for cat, words in table.items():
-        n = 0
-        for w in words:
-            if lang == 'zh':
-                n += hay.count(w)
-            else:
-                n += len(re.findall(r'(?<![a-z])' + re.escape(w) + r'(?![a-z])', hay))
+        if lang == 'zh':
+            # Longest-first, non-overlapping matching prevents “但是” from
+            # being counted once as “但是” and again as “但”.
+            pattern = '|'.join(re.escape(w) for w in sorted(words, key=len, reverse=True))
+            n = len(re.findall(pattern, hay))
+        else:
+            n = sum(len(re.findall(r'(?<![a-z])' + re.escape(w) + r'(?![a-z])', hay))
+                    for w in words)
         out[cat] = n
     return out
 
@@ -116,7 +146,11 @@ def top_content(text, lang, k=25):
         stop = set('the a an and or but if of to in on for with as at by from is are was were be been it its this that these those i you he she we they not no do does did have has had will would can could may might shall should must'.split())
         words = [w for w in re.findall(r"[a-z']+", text.lower()) if w not in stop and len(w) > 2]
         return Counter(words).most_common(k)
-    # zh：无分词器时用二字元近似（过滤含虚字/标点的）
+    if jieba is not None:
+        stop = set('的了是在我不有和人这中大为上个国他以要你到时说们就来去对生会子着自年那她可以于出好也都还又')
+        words = [w for w in zh_tokens(text) if w not in stop and len(w) > 1]
+        return Counter(words).most_common(k)
+    # No tokenizer: use a reproducible two-character approximation.
     chars = re.findall(r'[一-鿿]', text)
     bigrams = (''.join(chars[i:i+2]) for i in range(len(chars) - 1))
     bigrams = [b for b in bigrams if b[0] not in ZH_FUNC_CHARS and b[1] not in ZH_FUNC_CHARS]
@@ -136,15 +170,22 @@ def pronoun_vector(text, lang):
     """人称代词相对频率（每千单位）——Hicke & Mimno (2025)：代词是功能词中最强的作者级风格载体。"""
     if lang == 'zh':
         total = max(len(re.findall(r'[一-鿿]', text)), 1)
-        groups = {'1sg': ['我'], '1pl': ['我们', '咱们'], '2nd': ['你', '您', '你们'], '3rd': ['他', '她', '它', '他们', '她们']}
-    else:
-        words = re.findall(r"[a-z']+", text.lower())
-        total = max(len(words), 1)
-        c = Counter(words)
-        groups = {'1sg': ['i', 'me', 'my', 'mine'], '1pl': ['we', 'us', 'our', 'ours'],
-                  '2nd': ['you', 'your', 'yours'], '3rd': ['he', 'him', 'his', 'she', 'her', 'hers', 'they', 'them', 'their', 'it', 'its']}
-        return {g: round(sum(c[w] for w in ws) / total * 1000, 1) for g, ws in groups.items()}
-    return {g: round(sum(text.count(w) for w in ws) / total * 1000, 1) for g, ws in groups.items()}
+        # Match plural forms first and exclude their first character from the
+        # singular bucket; ``str.count('我')`` would otherwise count ``我们``
+        # twice across the two person categories.
+        counts = {
+            '1sg': len(re.findall(r'(?<![们咱])我(?!们)', text)),
+            '1pl': len(re.findall(r'我们|咱们', text)),
+            '2nd': len(re.findall(r'你们|你|您', text)),
+            '3rd': len(re.findall(r'他们|她们|它们|他|她|它', text)),
+        }
+        return {g: round(n / total * 1000, 1) for g, n in counts.items()}
+    words = re.findall(r"[a-z']+", text.lower())
+    total = max(len(words), 1)
+    c = Counter(words)
+    groups = {'1sg': ['i', 'me', 'my', 'mine'], '1pl': ['we', 'us', 'our', 'ours'],
+              '2nd': ['you', 'your', 'yours'], '3rd': ['he', 'him', 'his', 'she', 'her', 'hers', 'they', 'them', 'their', 'it', 'its']}
+    return {g: round(sum(c[w] for w in ws) / total * 1000, 1) for g, ws in groups.items()}
 
 
 def sentence_overlap(sents, lang):
@@ -170,7 +211,8 @@ def punct_fingerprint(text, lang):
 
 
 def analyze(path):
-    text = open(path, encoding='utf-8', errors='replace').read()
+    with open(path, encoding='utf-8', errors='replace') as fh:
+        text = fh.read()
     lang = detect_lang(text)
     sents = split_sentences(text, lang)
     paras = [p for p in re.split(r'\n\s*\n', text) if p.strip()]
@@ -184,6 +226,24 @@ def analyze(path):
     ex = sum(1 for s in sents if s.rstrip().endswith(('！', '!')) if s.strip())
     mean = sum(lens) / max(len(lens), 1)
     var = sum((x - mean) ** 2 for x in lens) / max(len(lens), 1)
+    sd = math.sqrt(var)
+    median = percentile(lens, 50)
+    mad = percentile([abs(x - median) for x in lens], 50)
+    skewness = (sum((x - mean) ** 3 for x in lens) / max(len(lens), 1)
+                / max(sd ** 3, 1e-9)) if len(lens) >= 3 and sd > 0 else 0.0
+    tail = {
+        'p05': percentile(lens, 5),
+        'p95': percentile(lens, 95),
+        'iqr': round(percentile(lens, 75) - percentile(lens, 25), 1),
+        'mad': round(mad, 1),
+        'skewness': round(skewness, 3),
+        'cv': round(sd / max(mean, 1e-9), 3) if mean else 0.0,
+        'min': min(lens) if lens else 0,
+        'max': max(lens) if lens else 0,
+        # Tail percentiles are unstable for tiny samples; expose this so a
+        # caller cannot mistake a point estimate for a reliable distribution.
+        'reliable': len(lens) >= 20,
+    }
     buckets = [0, 0, 0, 0, 0]
     edges = (10, 20, 35, 50) if lang == 'zh' else (8, 15, 25, 40)
     for L in lens:
@@ -197,9 +257,9 @@ def analyze(path):
         ttr = round(len(set(toks)) / max(len(toks), 1), 3)
         lex_tokens = toks
     else:
-        chars = re.findall(r'[一-鿿]', text)
-        ttr = round(len(set(chars)) / max(len(chars), 1), 3)
-        lex_tokens = chars
+        tokens = zh_tokens(text)
+        ttr = round(len(set(tokens)) / max(len(tokens), 1), 3)
+        lex_tokens = tokens
     return {
         'file': path, 'lang': lang,
         'units': total, 'sentences': len(sents), 'paragraphs': len(paras),
@@ -207,10 +267,14 @@ def analyze(path):
         'pronouns_per_1000': pronoun_vector(text, lang),
         'sent_overlap': sentence_overlap(sents, lang),
         'punct_per_1000': punct_fingerprint(text, lang),
-        'sent_len': {'mean': round(mean, 1), 'median': percentile(lens, 50),
-                     'stdev': round(math.sqrt(var), 1), 'p10': percentile(lens, 10),
+        'sent_len': {'mean': round(mean, 1), 'median': median,
+                     'stdev': round(sd, 1), 'p10': percentile(lens, 10),
                      'p90': percentile(lens, 90),
-                     'buckets': buckets, 'bucket_edges': edges},
+                     'buckets': buckets, 'bucket_edges': edges,
+                     'p05': tail['p05'], 'p95': tail['p95'],
+                     'iqr': tail['iqr'], 'mad': tail['mad'],
+                     'skewness': tail['skewness'], 'cv': tail['cv']},
+        'tail': tail,
         'clauses_per_sent': {'mean': round(sum(cls) / max(len(cls), 1), 2),
                              'p90': percentile(cls, 90)},
         'sent_types': {'declarative': len(sents) - q - ex, 'interrogative': q, 'exclamatory': ex},
@@ -218,6 +282,8 @@ def analyze(path):
         'ttr': ttr,
         'mean_word_len': (round(sum(len(w) for w in u) / max(len(u), 1), 2) if lang == 'en' else None),
         'top_content': top_content(text, lang),
+        'tokenization': ('jieba' if lang == 'zh' and jieba is not None else
+                         'char' if lang == 'zh' else 'whitespace-word'),
     }
 
 
@@ -226,10 +292,11 @@ def md_report(res):
     lines = [f"## {res['file']}",
              f"- 语言：{res['lang']}｜规模：{res['units']} 单位 / {res['sentences']} 句 / {res['paragraphs']} 段",
              f"- 句长：均值 {L['mean']}，中位 {L['median']}，标准差 {L['stdev']}，p10–p90 = {L['p10']}–{L['p90']}",
+             f"- 尾部：p05–p95 = {res['tail']['p05']}–{res['tail']['p95']}，IQR {res['tail']['iqr']}，MAD {res['tail']['mad']}，偏度 {res['tail']['skewness']}，CV {res['tail']['cv']}" + ("（n<20，尾部不稳定）" if not res['tail']['reliable'] else ''),
              f"- 句长分布（≤{L['bucket_edges'][0]} / …{L['bucket_edges'][1]} / …{L['bucket_edges'][2]} / …{L['bucket_edges'][3]} / >{L['bucket_edges'][3]}）：{res['sent_len']['buckets']}",
              f"- 每句小句数：均值 {res['clauses_per_sent']['mean']}，p90 {res['clauses_per_sent']['p90']}（形合度近似）",
              f"- 句类：陈述 {res['sent_types']['declarative']} / 疑问 {res['sent_types']['interrogative']} / 感叹 {res['sent_types']['exclamatory']}",
-             f"- TTR：{res['ttr']}｜MATTR：{res['mattr']}（长度无关）" + (f"，均词长 {res['mean_word_len']}" if res['mean_word_len'] else '（汉字级）'),
+             f"- TTR：{res['ttr']}｜MATTR：{res['mattr']}（长度无关）｜分词：{res['tokenization']}" + (f"，均词长 {res['mean_word_len']}" if res['mean_word_len'] else ''),
              "- 标记（每千单位）：" + '，'.join(f"{k} {v}" for k, v in res['markers_per_1000'].items()),
              "- 代词（每千单位）：" + '，'.join(f"{k} {v}" for k, v in res['pronouns_per_1000'].items()),
              f"- 句间词汇重叠率：{res['sent_overlap']}（指称衔接近似）",
@@ -253,24 +320,35 @@ def main():
     if a.compare and len(results) == 2:
         s, d = results
         print('## 偏差对照（draft 相对 sample）')
+        if s['lang'] != d['lang']:
+            print(f"⚠️ 语言不同（{s['lang']} vs {d['lang']}），不应把该结果当作声纹偏差")
         for k in ('mean', 'stdev'):
             sv, dv = s['sent_len'][k], d['sent_len'][k]
             print(f"- 句长{k}：{sv} → {dv}（{'↑' if dv > sv else '↓'} {round(abs(dv-sv),1)}）")
         # 方差塌缩检查（Kirilloff et al. 2025：LLM 仿写最常见的系统性失败是离散度塌缩而非均值偏差）
         ss, ds = s['sent_len']['stdev'], d['sent_len']['stdev']
-        if ss > 0 and ds / ss < 0.7:
+        if s['sentences'] >= 20 and d['sentences'] >= 20 and ss > 0 and ds / ss < 0.7:
             print(f"⚠️ 方差塌缩：句长标准差 {ss} → {ds}（比值 {round(ds/ss,2)} < 0.7），节奏多样性明显不足")
+        for key in ('p05', 'p95', 'iqr', 'mad', 'cv'):
+            print(f"- 尾部:{key}：{s['tail'][key]} → {d['tail'][key]}")
+
+        def flag_delta(sv, dv, high=2.0, low=0.5, floor=1.0):
+            # A zero baseline must still flag a newly introduced feature.
+            if sv == 0:
+                return ' ⚠️新增' if dv != 0 else ''
+            return ' ⚠️' if dv / sv > high or dv / sv < low or abs(dv - sv) > floor and sv < floor else ''
+
         for name, key in (('MATTR', 'mattr'), ('句间重叠', 'sent_overlap')):
             sv, dv = s[key], d[key]
-            flag = ' ⚠️' if sv > 0 and (dv / sv > 1.5 or dv / sv < 0.67) else ''
+            flag = flag_delta(sv, dv, high=1.5, low=0.67, floor=0.05)
             print(f"- {name}：{sv} → {dv}{flag}")
         for cat in s['markers_per_1000']:
             sv, dv = s['markers_per_1000'][cat], d['markers_per_1000'][cat]
-            flag = ' ⚠️' if sv > 0 and (dv / sv > 2 or dv / sv < 0.5) else ''
+            flag = flag_delta(sv, dv)
             print(f"- {cat}：{sv} → {dv}{flag}")
         for cat in s['pronouns_per_1000']:
             sv, dv = s['pronouns_per_1000'][cat], d['pronouns_per_1000'][cat]
-            flag = ' ⚠️' if sv > 0 and (dv / sv > 2 or dv / sv < 0.5) else ''
+            flag = flag_delta(sv, dv)
             print(f"- 代词:{cat}：{sv} → {dv}{flag}")
 
 

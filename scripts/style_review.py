@@ -49,8 +49,38 @@ EN_PATTERNS = [
 ]
 
 
+def _term_count(text, term, lang):
+    """Count a lexicon term without matching English substrings.
+
+    Chinese entries may intentionally contain a regex (for example
+    ``开启.*新篇章``); English entries are literal phrases and need token
+    boundaries so ``delve`` does not match ``delves``.
+    """
+    if lang == 'zh':
+        return len(re.findall(term, text))
+    body = term if re.search(r'[.\\*+?()|\[\]]', term) else re.escape(term)
+    return len(re.findall(r'(?<![a-z])(?:' + body + r')(?![a-z])', text.lower()))
+
+
+def _evidence(text, term, lang, limit=2):
+    """Return short source snippets so every hit can be manually checked."""
+    if lang == 'zh':
+        pattern, hay = term, text
+    else:
+        body = term if re.search(r'[.\\*+?()|\[\]]', term) else re.escape(term)
+        pattern, hay = r'(?<![a-z])(?:' + body + r')(?![a-z])', text.lower()
+    snippets = []
+    for match in re.finditer(pattern, hay):
+        start, end = max(0, match.start() - 12), min(len(text), match.end() + 12)
+        snippets.append(text[start:end].replace('\n', ' '))
+        if len(snippets) >= limit:
+            break
+    return '；'.join(snippets)
+
+
 def aiflavor(path):
-    text = open(path, encoding='utf-8', errors='replace').read()
+    with open(path, encoding='utf-8', errors='replace') as fh:
+        text = fh.read()
     lang = detect_lang(text)
     res = analyze(path)
     total = res['units']
@@ -60,44 +90,57 @@ def aiflavor(path):
     score = 0.0
     for group, words in lex.items():
         n = 0
+        evidence = []
         for w in words:
-            n += len(re.findall(w, text if lang == 'zh' else text.lower()))
-        if n:
+            n += _term_count(text, w, lang)
+            if len(evidence) < 2 and _term_count(text, w, lang):
+                evidence.append(_evidence(text, w, lang, 1))
+        if n and total:
             per = n / total * 1000
             pts = min(per * 2, 10)
             score += pts
-            hits.append((f'{group}', n, round(per, 2), round(pts, 1)))
+            hits.append((f'{group}', n, round(per, 2), round(pts, 1), '；'.join(evidence)))
     for name, pat, w in pats:
-        n = len(re.findall(pat, text if lang == 'zh' else text.lower()))
-        if n:
+        n = _term_count(text, pat, lang)
+        if n and total:
             per = n / total * 1000
             pts = min(per * 3 * w, 12)
             score += pts
-            hits.append((name, n, round(per, 2), round(pts, 1)))
+            hits.append((name, n, round(per, 2), round(pts, 1), _evidence(text, pat, lang)))
     # 方差塌缩（CV = stdev/mean；人类非虚构 CV 通常 0.6–0.9，LLM 常 < 0.5）
-    cv = res['sent_len']['stdev'] / max(res['sent_len']['mean'], 1e-9)
-    if cv < 0.45:
+    cv = res['tail']['cv']
+    sentence_lengths = [len(re.findall(r'[一-鿿]', s)) if lang == 'zh'
+                        else len(re.findall(r"[a-zA-Z']+", s))
+                        for s in split_sentences(text, lang)]
+    enough_length_variation = len(set(sentence_lengths)) >= 4
+    # CV and tail statistics need enough independent sentences.  Without this
+    # gate every one-line note (and every subtitle line) is falsely “collapsed”.
+    if res['sentences'] >= 8 and enough_length_variation and cv < 0.45:
         pts = 15
         score += pts
         hits.append((f'方差塌缩（CV={round(cv,2)} < 0.45）', '—', '—', pts))
-    elif cv < 0.55:
+    elif res['sentences'] >= 8 and enough_length_variation and cv < 0.55:
         score += 6
         hits.append((f'节奏偏匀（CV={round(cv,2)}）', '—', '—', 6))
     # 破折号密度
     dash = text.count('——') if lang == 'zh' else text.count('—') + text.count(' - ')
-    dper = dash / total * 1000
+    dper = dash / total * 1000 if total else 0
     if dper > 8:
         score += 8
         hits.append(('破折号密集', dash, round(dper, 2), 8))
     score = min(round(score), 100)
-    level = ('低（像人写的）' if score < 15 else '中（有 AI 腔段落）' if score < 35 else '高（明显 AI 腔）')
+    level = ('不可评分（无可分析单位）' if total == 0 else
+             '低（像人写的）' if score < 15 else
+             '中（有 AI 腔段落）' if score < 35 else '高（明显 AI 腔）')
     print(f'## AI 味测量：{path}')
     print(f'- 语言：{lang}｜规模：{total} 单位｜**AI 味评分 {score}/100（{level}）**')
     print('- 说明：启发式 review 工具，定位需修改处，不作"是否 AI 生成"的判定结论（WP:AISIGNS 反误伤原则：看模式簇不看单词）\n')
+    if res['sentences'] < 8 or total < 80:
+        print('- ⚠️ 样本过短：不启用方差塌缩判据，AI 味分数仅作线索，不能作稳定结论。\n')
     if hits:
-        print('| 模式 | 命中数 | 每千单位 | 扣分 |\n|---|---|---|---|')
+        print('| 模式 | 命中数 | 每千单位 | 扣分 | 原文证据（最多2处） |\n|---|---|---|---|---|')
         for h in hits:
-            print(f'| {h[0]} | {h[1]} | {h[2]} | {h[3]} |')
+            print(f'| {h[0]} | {h[1]} | {h[2]} | {h[3]} | {h[4]} |')
     else:
         print('未命中已知 AI 腔模式。')
     return score
@@ -105,12 +148,30 @@ def aiflavor(path):
 
 LAYERS = {
     '词汇': [('mattr', 1.0), ('ttr', 0.5)],
-    '句法节奏': [('sent_len.mean', 1.0), ('sent_len.stdev', 1.5), ('sent_len.p90', 0.5), ('clauses_per_sent.mean', 1.0)],
+    '句法节奏': [('sent_len.mean', 1.0), ('sent_len.stdev', 1.5), ('sent_len.p90', 0.5),
+                 ('tail.p05', 0.5), ('tail.p95', 0.5), ('tail.iqr', 0.8), ('clauses_per_sent.mean', 1.0)],
     '衔接标记': [('markers_per_1000.additive', 1), ('markers_per_1000.adversative', 1), ('markers_per_1000.causal', 1), ('markers_per_1000.temporal', 1)],
     '立场介入': [('markers_per_1000.hedges', 1.2), ('markers_per_1000.boosters', 1.2), ('markers_per_1000.self', 1), ('markers_per_1000.reader', 1.2), ('markers_per_1000.directives', 1)],
     '修辞标记': [('markers_per_1000.simile', 1.2), ('markers_per_1000.exemplify', 1), ('sent_overlap', 1)],
     '代词指纹': [('pronouns_per_1000.1sg', 1), ('pronouns_per_1000.1pl', 1), ('pronouns_per_1000.2nd', 1.2), ('pronouns_per_1000.3rd', 1)],
 }
+
+
+def _content_tokens(path, lang):
+    with open(path, encoding='utf-8', errors='replace') as fh:
+        text = fh.read()
+    if lang == 'zh':
+        chars = [c for c in re.findall(r'[一-鿿]', text) if c not in ZH_FUNC_CHARS]
+        return set(''.join(chars[i:i + 2]) for i in range(len(chars) - 1))
+    stop = set('the a an and or but if of to in on for with as at by from is are was were be been it its this that these those i you he she we they not no do does did have has had will would can could may might shall should must'.split())
+    return set(w for w in re.findall(r"[a-z']+", text.lower()) if len(w) > 2 and w not in stop)
+
+
+def _distance(a, b):
+    """Bounded symmetric distance that behaves sensibly around zero."""
+    if a == b:
+        return 0.0
+    return min(abs(a - b) / max(abs(a), abs(b), 1e-6), 1.0)
 
 
 def getf(res, dotted):
@@ -125,13 +186,16 @@ def sim(path_a, path_b):
     if A['lang'] != B['lang']:
         print(f'⚠️ 语言不同（{A["lang"]} vs {B["lang"]}），相似度仅供参考')
     print(f'## 文风相似度：{os.path.basename(path_a)} vs {os.path.basename(path_b)}\n')
+    too_short = A['sentences'] < 5 or B['sentences'] < 5 or A['units'] < 80 or B['units'] < 80
+    if too_short:
+        print('⚠️ 样本过短：规则分布不稳定，综合分仅作线索，不能作“同一声纹”结论。\n')
     total_w, total_d = 0.0, 0.0
     divergent = []
     for layer, feats in LAYERS.items():
         lw, ld = 0.0, 0.0
         for f, w in feats:
             a, b = getf(A, f), getf(B, f)
-            d = abs(a - b) / (a + b + 1e-6)  # 对称相对差 ∈ [0,1)
+            d = _distance(a, b)
             lw += w
             ld += w * d
             total_w += w
@@ -140,8 +204,17 @@ def sim(path_a, path_b):
                 divergent.append((f, a, b, round(d, 2)))
         pct = round(100 * (1 - ld / max(lw, 1e-9)))
         print(f'- {layer}：相似 {pct}%')
+    # TTR/MATTR can be equal for two texts with disjoint vocabularies. Add a
+    # transparent content Jaccard signal to prevent that false positive.
+    ta, tb = _content_tokens(path_a, A['lang']), _content_tokens(path_b, B['lang'])
+    content_sim = len(ta & tb) / len(ta | tb) if ta or tb else 0.0
+    content_weight = 2.0
+    total_w += content_weight
+    total_d += content_weight * (1 - content_sim)
+    print(f'- 词汇内容（Jaccard）：相似 {round(content_sim * 100)}%')
     overall = round(100 * (1 - total_d / max(total_w, 1e-9)))
-    verdict = '同一声纹区间' if overall >= 85 else ('相近但有漂移' if overall >= 70 else '明显不同')
+    verdict = ('样本过短，无法判定' if too_short else
+               '同一声纹区间' if overall >= 85 else ('相近但有漂移' if overall >= 70 else '明显不同'))
     print(f'\n**综合相似度 {overall}%（{verdict}）**')
     if divergent:
         print('\n偏差最大的特征（对称相对差 > 0.4）：')

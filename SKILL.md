@@ -1,6 +1,6 @@
 ---
 name: style-mimic
-description: "基于文体学（stylistics）与语料库语言学的文风模仿：从样本提取可复用的风格档案（词汇/句法/修辞/语篇/声音五层，定量指标 + 质性描写），再用档案约束新写作并量化校验偏差。Use when 用户要求模仿某位作者/某本教材/某种文体的文风、语句风格、修辞风格、句式（文风模仿、照……的风格写、style mimic、voice profile、文体分析），或要把一段文字改写成指定风格。"
+description: "基于文体学（stylistics）与语料库语言学的文风模仿：从样本提取可复用的风格档案（词汇/句法/修辞/语篇/立场/叙事声音六层，定量指标 + 质性描写），再用档案约束新写作并量化校验偏差。Use when 用户要求模仿某位作者/某本教材/某种文体的文风、语句风格、修辞风格、句式（文风模仿、照……的风格写、style mimic、voice profile、文体分析），或要把一段文字改写成指定风格。"
 ---
 
 # style-mimic — 文体学驱动的文风模仿
@@ -52,7 +52,10 @@ python3 scripts/style_review.py sim sample.txt draft.txt            # 文风相�
 - 写作时把档案的"硬约束"（句长区间、标记频率区间、禁用句式）放在手边。
 - 初稿完成后跑 `--compare`：任何标记频率偏差超过 2 倍或句长分布明显漂移的项，逐项修正后重跑，直到指标落入样本区间。
 - 定稿前跑 `style_review.py aiflavor`（防 AI 腔回流）和 `style_review.py sim`（相似度 ≥85 为同一声纹区间）。
+- 运行 `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests`；交付前再跑 `python3 tests/quality_benchmark.py`。测试门槛覆盖短中文、空文本、中文代词/标记不重叠、尾部统计、AI 腔对照、相似度对称性和不相干词汇的反误报。
 - 最后一遍人工读：修辞和语篇节奏只能人耳校验。
+
+**统计边界**：句长报告同时给 p05/p95、IQR、MAD、偏度和 CV；句数少于 20 时尾部只作线索。AI 味的方差判据至少需要 8 句且句长有 4 种取值，避免把字幕或重复练习误判为“AI 腔”。相似度把内容 Jaccard 与六层声纹指标分开显示；少于 5 句或 80 个单位时不得下“同一声纹”结论。所有分数都是可追溯的 review 启发式，不是 AI 生成检测器。
 
 ## 红线
 
