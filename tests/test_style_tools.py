@@ -98,6 +98,24 @@ class ReviewBehaviorTests(TextFixture):
             score = style_review.aiflavor(self.write_text(plain))
         self.assertLessEqual(score, 10)
 
+    def test_variance_penalty_report_has_complete_evidence_columns(self):
+        # Four nearby lengths keep CV low while satisfying the anti-subtitle
+        # gate that requires genuine length variation.
+        sentences = []
+        for i in range(8):
+            sentences.extend([
+                "We test one small idea today.",
+                "We test one small idea today again.",
+                "We test one small idea today again now.",
+                "We test one small idea today again now together.",
+            ])
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            score = style_review.aiflavor(self.write_text(" ".join(sentences)))
+        self.assertGreater(score, 0)
+        self.assertRegex(output.getvalue(), "方差塌缩|节奏偏匀")
+        self.assertIn("句长分布", output.getvalue())
+
     def test_empty_input_is_safe_and_reports_low_confidence(self):
         output = io.StringIO()
         with contextlib.redirect_stdout(output):

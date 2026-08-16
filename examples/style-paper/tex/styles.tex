@@ -1,0 +1,37 @@
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{ink}{HTML}{141414}
+\definecolor{vermilion}{HTML}{D45438}
+\definecolor{muted}{HTML}{6D6961}
+\definecolor{paper}{HTML}{F4F1EA}
+\pagecolor{paper}
+\color{ink}
+
+\setCJKmainfont{STSong}
+\setCJKsansfont{Heiti SC}
+\setmainfont{Georgia}
+\setsansfont{Helvetica Neue}
+\setmonofont{Menlo}
+
+\ctexset{
+  section = {format = \Large\bfseries\color{vermilion}, name = {}, afterskip = 8pt},
+  subsection = {format = \large\bfseries\color{ink}, afterskip = 4pt},
+  subsubsection = {format = \normalsize\bfseries\color{muted}}
+}
+
+\newenvironment{voicebox}{%
+  \begin{quote}\small\setlength{\parskip}{5pt}\color{ink}%
+}{%
+  \end{quote}%
+}
+
+\newcommand{\metric}[2]{\texttt{#1}: #2}
+\newcommand{\pastiche}{\textit{教学仿写（teaching pastiche）}}

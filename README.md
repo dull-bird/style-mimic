@@ -10,6 +10,7 @@
 - `scripts/style_analyze.py` — 定量分析脚本（中英文，jieba 可选）：句长分布/句类/小句数/功能标记/MATTR/代词向量/句间重叠/标点指纹 + p05/p95/IQR/MAD/偏度/CV 尾部统计 + `--compare` 偏差对照（含方差塌缩报警）
 - `scripts/style_review.py` — review 工具：`aiflavor` 测 AI 味（WP:AISIGNS 模式清单 + 方差塌缩，0–100 启发式评分，逐项可追溯）；`sim` 测双文本文风相似度（六层声纹距离 + 内容 Jaccard，≥85 才进入同一声纹区间）
 - `profiles/` — 已提取的风格档案（含 oakley-a-mind-for-numbers 示例）
+- `examples/style-paper/` — 离线“一题十一声”展示页、共享数据集与 XeLaTeX 论文 PDF
 
 ## 快速开始
 
@@ -29,6 +30,8 @@ PYTHONDONTWRITEBYTECODE=1 python3 tests/quality_benchmark.py
 ```
 
 `style_review.py` 的分数是 review 线索，不是“是否 AI 生成”的判定。短文本会明确提示不可稳定解释；`sim` 会把内容 Jaccard 单列，避免仅凭 TTR/MATTR 把词汇完全不同的文本判成同一声纹。完整检索记录与当前实测见 `research/2026-08-16-style-metrics.md`。
+
+展示页可用 `cd examples/style-paper && python3 -m http.server 8765` 启动；论文源文件、编译脚本和已编译 PDF 位于 `examples/style-paper/tex/`。
 
 ## 框架依据
 

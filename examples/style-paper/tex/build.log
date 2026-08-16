@@ -1,0 +1,514 @@
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./style-mimic-paper.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexart.cls
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctexbackend.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-xetex.de
+f))
+Document Class: ctexart 2022/07/14 v2.5.10 Chinese adapter for class article (C
+TEX)
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexhook.sty)
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexpatch.sty)
+(/Users/lilei/Library/texmf/tex/latex/base/fix-cm.sty
+(/Users/lilei/Library/texmf/tex/latex/base/ts1enc.def))
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctexopts.cfg)
+(/Users/lilei/Library/texmf/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/lilei/Library/texmf/tex/latex/base/size11.clo))
+(/Users/lilei/Library/texmf/tex/latex/ctex/engine/ctex-engine-xetex.def
+(/Users/lilei/Library/texmf/tex/xelatex/xecjk/xeCJK.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xtemplate/xtempla
+te.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/Users/lilei/Library/texmf/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/Users/lilei/Library/texmf/tex/xelatex/xecjk/xeCJK.cfg)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg))
+
+(/Users/lilei/Library/texmf/tex/latex/ctex/scheme/ctex-scheme-chinese-article.d
+ef (/Users/lilei/Library/texmf/tex/latex/ctex/config/ctex-name-utf8.cfg))
+(/Users/lilei/Library/texmf/tex/latex/ctex/fontset/ctex-fontset-mac.def
+(/Users/lilei/Library/texmf/tex/latex/ctex/fontset/ctex-fontset-macold.def)))
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctex.cfg) (./styles.tex
+(/Users/lilei/Library/texmf/tex/latex/geometry/geometry.sty
+(/Users/lilei/Library/texmf/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/Users/lilei/Library/texmf/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/xetex.def)
+(/Users/lilei/Library/texmf/tex/latex/graphics/mathcolor.ltx))
+(/Users/lilei/Library/texmf/tex/latex/booktabs/booktabs.sty)
+(/Users/lilei/Library/texmf/tex/latex/tools/longtable.sty)
+(/Users/lilei/Library/texmf/tex/latex/tools/array.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-xetex.de
+f) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg))
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def)
+(/Users/lilei/Library/texmf/tex/latex/url/url.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)
+) (/Users/lilei/Library/texmf/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty (/Users/lilei/Library/texmf/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty)))
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault' (STSong(0)).
+
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKsfdefault' (STXihei).
+
+) (./style-mimic-paper.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(./style-mimic-paper.out) (./style-mimic-paper.out)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/b/n' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 10.
+
+
+[1]
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/it' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 38.
+
+(./generated-voices.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+
+LaTeX Font Warning: Font shape `TU/Georgia(0)/m/sc' undefined
+(Font)              using `TU/Georgia(0)/m/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/sc' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 13.
+
+
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/sl' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 25.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+
+[11]) (./metrics-table.tex)
+[12] (./style-mimic-paper.bbl)
+[13] (./style-mimic-paper.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+Output written on style-mimic-paper.pdf (13 pages).
+Transcript written on style-mimic-paper.log.
+This is BibTeX, Version 0.99d (TeX Live 2025)
+The top-level auxiliary file: style-mimic-paper.aux
+The style file: plainnat.bst
+Database file #1: references.bib
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./style-mimic-paper.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexart.cls
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctexbackend.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-xetex.de
+f))
+Document Class: ctexart 2022/07/14 v2.5.10 Chinese adapter for class article (C
+TEX)
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexhook.sty)
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexpatch.sty)
+(/Users/lilei/Library/texmf/tex/latex/base/fix-cm.sty
+(/Users/lilei/Library/texmf/tex/latex/base/ts1enc.def))
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctexopts.cfg)
+(/Users/lilei/Library/texmf/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/lilei/Library/texmf/tex/latex/base/size11.clo))
+(/Users/lilei/Library/texmf/tex/latex/ctex/engine/ctex-engine-xetex.def
+(/Users/lilei/Library/texmf/tex/xelatex/xecjk/xeCJK.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xtemplate/xtempla
+te.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/Users/lilei/Library/texmf/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/Users/lilei/Library/texmf/tex/xelatex/xecjk/xeCJK.cfg)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg))
+
+(/Users/lilei/Library/texmf/tex/latex/ctex/scheme/ctex-scheme-chinese-article.d
+ef (/Users/lilei/Library/texmf/tex/latex/ctex/config/ctex-name-utf8.cfg))
+(/Users/lilei/Library/texmf/tex/latex/ctex/fontset/ctex-fontset-mac.def
+(/Users/lilei/Library/texmf/tex/latex/ctex/fontset/ctex-fontset-macold.def)))
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctex.cfg) (./styles.tex
+(/Users/lilei/Library/texmf/tex/latex/geometry/geometry.sty
+(/Users/lilei/Library/texmf/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/Users/lilei/Library/texmf/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/xetex.def)
+(/Users/lilei/Library/texmf/tex/latex/graphics/mathcolor.ltx))
+(/Users/lilei/Library/texmf/tex/latex/booktabs/booktabs.sty)
+(/Users/lilei/Library/texmf/tex/latex/tools/longtable.sty)
+(/Users/lilei/Library/texmf/tex/latex/tools/array.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-xetex.de
+f) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg))
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def)
+(/Users/lilei/Library/texmf/tex/latex/url/url.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)
+) (/Users/lilei/Library/texmf/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty (/Users/lilei/Library/texmf/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty)))
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault' (STSong(0)).
+
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKsfdefault' (STXihei).
+
+) (./style-mimic-paper.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(./style-mimic-paper.out) (./style-mimic-paper.out)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/b/n' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 10.
+
+
+[1]
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/it' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 38.
+
+(./generated-voices.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+
+LaTeX Font Warning: Font shape `TU/Georgia(0)/m/sc' undefined
+(Font)              using `TU/Georgia(0)/m/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/sc' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 13.
+
+
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/sl' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 25.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+
+[11]) (./metrics-table.tex)
+[12] (./style-mimic-paper.bbl)
+[13] (./style-mimic-paper.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+Output written on style-mimic-paper.pdf (13 pages).
+Transcript written on style-mimic-paper.log.
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+(./style-mimic-paper.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexart.cls
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctexbackend.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3kernel/expl3.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-xetex.de
+f))
+Document Class: ctexart 2022/07/14 v2.5.10 Chinese adapter for class article (C
+TEX)
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexhook.sty)
+(/Users/lilei/Library/texmf/tex/latex/ctex/ctexpatch.sty)
+(/Users/lilei/Library/texmf/tex/latex/base/fix-cm.sty
+(/Users/lilei/Library/texmf/tex/latex/base/ts1enc.def))
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctexopts.cfg)
+(/Users/lilei/Library/texmf/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/lilei/Library/texmf/tex/latex/base/size11.clo))
+(/Users/lilei/Library/texmf/tex/latex/ctex/engine/ctex-engine-xetex.def
+(/Users/lilei/Library/texmf/tex/xelatex/xecjk/xeCJK.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xtemplate/xtempla
+te.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+(/Users/lilei/Library/texmf/tex/latex/base/fontenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
+(/Users/lilei/Library/texmf/tex/xelatex/xecjk/xeCJK.cfg)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/zhnumber/zhnumber.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg))
+
+(/Users/lilei/Library/texmf/tex/latex/ctex/scheme/ctex-scheme-chinese-article.d
+ef (/Users/lilei/Library/texmf/tex/latex/ctex/config/ctex-name-utf8.cfg))
+(/Users/lilei/Library/texmf/tex/latex/ctex/fontset/ctex-fontset-mac.def
+(/Users/lilei/Library/texmf/tex/latex/ctex/fontset/ctex-fontset-macold.def)))
+(/Users/lilei/Library/texmf/tex/latex/ctex/config/ctex.cfg) (./styles.tex
+(/Users/lilei/Library/texmf/tex/latex/geometry/geometry.sty
+(/Users/lilei/Library/texmf/tex/latex/graphics/keyval.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/Users/lilei/Library/texmf/tex/latex/xcolor/xcolor.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/xetex.def)
+(/Users/lilei/Library/texmf/tex/latex/graphics/mathcolor.ltx))
+(/Users/lilei/Library/texmf/tex/latex/booktabs/booktabs.sty)
+(/Users/lilei/Library/texmf/tex/latex/tools/longtable.sty)
+(/Users/lilei/Library/texmf/tex/latex/tools/array.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-xetex.de
+f) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype.cfg))
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/natbib/natbib.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.
+sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/gettitlestring/gettitlestr
+ing.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def)
+(/Users/lilei/Library/texmf/tex/latex/url/url.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)
+) (/Users/lilei/Library/texmf/tex/latex/base/atbegshi-ltx.sty))
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hxetex.def
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty (/Users/lilei/Library/texmf/tex/latex/base/atveryend-ltx.sty)
+(/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
+r.sty)))
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault' (STSong(0)).
+
+
+Package xeCJK Warning: Redefining CJKfamily `\CJKsfdefault' (STXihei).
+
+) (./style-mimic-paper.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(./style-mimic-paper.out) (./style-mimic-paper.out)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/b/n' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 10.
+
+
+[1]
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/it' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 38.
+
+(./generated-voices.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+
+LaTeX Font Warning: Font shape `TU/Georgia(0)/m/sc' undefined
+(Font)              using `TU/Georgia(0)/m/n' instead on input line 13.
+
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/sc' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 13.
+
+
+
+LaTeX Font Warning: Font shape `TU/STSong(1)/m/sl' undefined
+(Font)              using `TU/STSong(1)/m/n' instead on input line 25.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
+
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+
+[11]) (./metrics-table.tex)
+[12] (./style-mimic-paper.bbl)
+[13] (./style-mimic-paper.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+Output written on style-mimic-paper.pdf (13 pages).
+Transcript written on style-mimic-paper.log.

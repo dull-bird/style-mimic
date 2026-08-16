@@ -26,6 +26,18 @@
         "case": "譬如同说“工具把文风变成可复核的证据”。学究曰：“该框架整合六类特征。”说书人曰：“先把文章拆成几件可数的小物事，再看看它们如何合奏。”理未改而声已迁，这便是仿写的要害：换其行旅，不换其目的地。",
         "limits": "然天下之物，过量则失真。短文三五句，拿标准差来论风，犹以一叶测秋；AI 味若只凭一个词，也如见客衣上尘埃便断其为旅人。故工具只作案头小友，须报样本之短、指标之疑，并让人读其全文。活人文风更不可盗名，借来练笔可，冒作真迹不可。",
         "conclusion": "是故文风非一枚印章，盖在纸上便了；它更像一条河，有深浅，有回湾，有忽然的急流。把河道量给人看，未必损其风致，反使我们知道何处是水势，何处只是岸边的芦苇。"
+      },
+      "metrics": {
+        "cv": 0.388,
+        "p05": 9.0,
+        "p95": 40.0,
+        "iqr": 13.0,
+        "mattr": 0.924,
+        "ai_flavor": 22,
+        "similarity": 60,
+        "sentences": 17,
+        "units": 442,
+        "tail_reliable": false
       }
     },
     {
@@ -43,6 +55,18 @@
         "case": "同一事实曰：“框架将文风转为可复核证据。”平直者直陈其事，古文者约之为：“析辞以见体，验数以知声。”前者贵达，后者贵简而有骨。其所指者一，而其所以指之者异；文体之辨，正在此不在彼。",
         "limits": "然法有所不能尽。样本过短，则分布未成；词表过窄，则误伤难免；体裁之规，亦不可误认作作者之声。故输出须列证据、报置信边界，且以人工复核为终。至于活人作者之风，宜明言为拟作，不可混淆出处。",
         "conclusion": "综上，仿写之道不在摹其一字，而在得其所以然。守共同之义，察独有之法，量其分布而审其偏差，则文风可学，且不失其为学。"
+      },
+      "metrics": {
+        "cv": 0.617,
+        "p05": 8.5,
+        "p95": 45.2,
+        "iqr": 14.5,
+        "mattr": 0.88,
+        "ai_flavor": 0,
+        "similarity": 72,
+        "sentences": 16,
+        "units": 394,
+        "tail_reliable": false
       }
     },
     {
@@ -60,6 +84,18 @@
         "case": "同言其理：有人说“框架测量风格”，有人说“文章有河山，指标是航图”。前者如尺，后者如舟；尺量其长，舟渡其远。内容之山河未改，表达之舟楫已更，读者遂见同一命题的不同天光。",
         "limits": "然而短章不足以成谱，孤证不足以成案；体裁有其疆界，作者有其微声。AI 的整齐可能是塌缩，人类的整齐也可能只是练习；故须区分提示与判决，区分仿写与冒名，区分统计的明白与文学的余韵。",
         "conclusion": "愿此框架如一座小楼：以数据为栏，以证据为窗，以伦理为门。登楼而望，见文风各有峰峦；回身而下，知一切测量仍为阅读服务。"
+      },
+      "metrics": {
+        "cv": 0.348,
+        "p05": 16.0,
+        "p95": 43.8,
+        "iqr": 6.6,
+        "mattr": 0.869,
+        "ai_flavor": 25,
+        "similarity": 64,
+        "sentences": 14,
+        "units": 360,
+        "tail_reliable": false
       }
     },
     {
@@ -77,6 +113,18 @@
         "case": "例如，“框架可以测风格”这句话，平庸的写法会说它“赋能表达、构建闭环、开启新篇章”。把这些词删掉，换成一句更不体面的：“你写得像谁，先别急着争；把句子数一数，证据自然会露头。”事实未变，姿态变了。",
         "limits": "当然，工具也会犯错。三句短文的 CV 没有资格审判一个作者；一个“值得注意”也不能单独定罪。所谓 AI 味只是 review 提示，不是法庭判决。至于拿活人的名字做招牌，更是把练习变成冒充，应该在门口就写清楚。",
         "conclusion": "所以文风不是神秘的灵光，也不是菜单上的标签。它是一串选择，带着习惯，偶尔带着毛刺。好的工具不是替你宣布“像”或“不像”，而是把那根毛刺递到你手里。"
+      },
+      "metrics": {
+        "cv": 0.539,
+        "p05": 7.5,
+        "p95": 43.5,
+        "iqr": 17.2,
+        "mattr": 0.901,
+        "ai_flavor": 38,
+        "similarity": 55,
+        "sentences": 16,
+        "units": 384,
+        "tail_reliable": false
       }
     },
     {
@@ -94,6 +142,18 @@
         "case": "同一句意思可以这样写：“这个框架把文风变成证据。”也可以这样写：“我们不凭印象判断；我们把词汇和句子列出来，看看哪些差异真的存在。”第二句多了一点行动步骤，读者因此知道下一步该做什么。",
         "limits": "当然，这不是说数字可以代替阅读。比喻是否自然，段落是否有气势，反讽是否有效，仍要靠人来判断。AI 味清单也只能指出可疑的模式，不能证明作者身份。活人作者的仿写，更应说明是练习。",
         "conclusion": "我的结论是：文风可以研究，但不能偷懒研究；可以量化，但不能迷信数字。先把问题说清楚，先做能复算的小实验，才有资格谈更大的文学判断。"
+      },
+      "metrics": {
+        "cv": 0.515,
+        "p05": 6.9,
+        "p95": 36.2,
+        "iqr": 15.0,
+        "mattr": 0.875,
+        "ai_flavor": 6,
+        "similarity": 55,
+        "sentences": 19,
+        "units": 386,
+        "tail_reliable": false
       }
     },
     {
@@ -111,6 +171,18 @@
         "case": "同一事实若写成学术报告，是“框架提供可复核的风格特征”；若写成读书人的闲谈，则可能是：“我们把文风请下神坛，给它量一量鞋码；鞋合不合脚，还须让它走两步。”论点未换，鞋子换了，读者却从鞋底的纹路认出说话人的脾气。",
         "limits": "当然，统计工具也有它的社交礼貌：遇到三句话的样本，它不应装作认识你多年；遇到一个套话，它也不应立刻写信给检察院。AI 味评分只是编辑桌上的铅笔圈，不是作者身份证。活人风格更像借来的西装，穿着练习可以，拿去办证不行。",
         "conclusion": "所以，文风研究的理想状态不是把文章压扁成表格，而是让表格替文章指出几处值得重读的地方。数字负责敲门，阅读负责开门；若两者都在，风格才没有被指标或玄学单独绑架。"
+      },
+      "metrics": {
+        "cv": 0.38,
+        "p05": 16.8,
+        "p95": 56.0,
+        "iqr": 19.0,
+        "mattr": 0.871,
+        "ai_flavor": 27,
+        "similarity": 35,
+        "sentences": 13,
+        "units": 471,
+        "tail_reliable": false
       }
     },
     {
@@ -128,6 +200,18 @@
         "case": "Here is the same idea in a learner-friendly form: “The framework makes style measurable.” Now turn it into a small experiment: write the sentence once in a formal register, once with a story, and once with a direct instruction. The claim stays put; the pathway to it changes. That is the useful part of imitation: you are training a transferable move, not copying a surface.",
         "limits": "A tiny sample is like trying to learn a song from two notes. Its standard deviation can look dramatic or perfectly flat by accident. The AI-flavor review is therefore a set of study cues, not a detector. It should point to patterns you can revise, while a human reader checks whether the passage still sounds alive. Living writers must be named as teaching references, never impersonated.",
         "conclusion": "The payoff is practical: once style is written as a set of observable choices, you can practice one choice at a time. Keep the idea constant, change the voice, measure the drift, and then read the result aloud. That loop turns a vague feeling into a skill you can improve."
+      },
+      "metrics": {
+        "cv": 0.509,
+        "p05": 9.0,
+        "p95": 40.4,
+        "iqr": 10.0,
+        "mattr": 0.834,
+        "ai_flavor": 14,
+        "similarity": 48,
+        "sentences": 17,
+        "units": 324,
+        "tail_reliable": false
       }
     },
     {
@@ -145,6 +229,18 @@
         "case": "The message is simple: style-mimic makes style review practical. One version says, “The system computes six families of features.” Another says, “We take the writing apart, feature by feature, and we show you what changed.” Same message. Stronger delivery. Clearer delivery. That is the point.",
         "limits": "There are limits. A short sample is not enough. One fashionable word is not enough. A score is not proof. We do not use this to claim who wrote something, and we do not use a living person's name to fake an endorsement. We use it to review, to compare, and to improve.",
         "conclusion": "The result is a better process: keep the idea, change the voice, measure the difference. It is transparent. It is practical. And when the numbers disagree with the reader, we read again. That is how you get writing that works."
+      },
+      "metrics": {
+        "cv": 0.717,
+        "p05": 2.3,
+        "p95": 22.7,
+        "iqr": 8.5,
+        "mattr": 0.688,
+        "ai_flavor": 0,
+        "similarity": 54,
+        "sentences": 27,
+        "units": 256,
+        "tail_reliable": true
       }
     },
     {
@@ -162,6 +258,18 @@
         "case": "Consider one shared claim: “A framework can make style reviewable.” In one voice, it becomes a specification. In another, a story. In another, a call to action. The claim remains stable, but the relationship with the reader changes. That difference is not a flaw in language; it is one of language's ways of making room for many kinds of attention.",
         "limits": "We should also be clear about what the framework cannot do. A small sample cannot speak with statistical confidence. A list of familiar phrases cannot prove authorship. And a living writer's voice cannot be treated as public property simply because it can be described. Responsible practice names the exercise, shows the evidence, and leaves room for uncertainty.",
         "conclusion": "The promise is not that a machine will settle the question of voice. The promise is that writers and readers can ask better questions: Which choices make this passage distinctive? Which changes are caused by genre? What evidence would make us revise our view? In that work, measurement becomes a partner to judgment, not a substitute for it."
+      },
+      "metrics": {
+        "cv": 0.454,
+        "p05": 5.0,
+        "p95": 24.8,
+        "iqr": 9.0,
+        "mattr": 0.813,
+        "ai_flavor": 6,
+        "similarity": 52,
+        "sentences": 22,
+        "units": 294,
+        "tail_reliable": true
       }
     },
     {
@@ -179,6 +287,18 @@
         "case": "Suppose the proposition is that the framework makes style reviewable. In a technical voice, it is a measurement statement. In a reflective voice, it becomes a question: can the qualities we feel in prose be represented by a set of observable relations? The proposition has not changed; the coordinate system of attention has changed.",
         "limits": "The analogy has limits. A text is not a gas, and a reader is not an instrument with a fixed calibration. Short samples yield unstable estimates; lexical patterns can be common to many writers; and human judgment remains part of the experiment. The framework therefore reports uncertainty and treats living-author imitation as an explicitly labeled exercise.",
         "conclusion": "We may say, then, that style is neither entirely subjective nor entirely mechanical. It is a relation between choices, distributions, context, and a reader. Measurement can illuminate that relation, provided we remember that an illuminated object is not thereby exhausted."
+      },
+      "metrics": {
+        "cv": 0.447,
+        "p05": 5.9,
+        "p95": 24.3,
+        "iqr": 9.7,
+        "mattr": 0.786,
+        "ai_flavor": 22,
+        "similarity": 39,
+        "sentences": 20,
+        "units": 291,
+        "tail_reliable": true
       }
     },
     {
@@ -196,6 +316,18 @@
         "case": "Take the sentence “The framework measures style.” You can make it sound academic by adding definitions. You can make it sound like a lesson by adding a concrete experiment. You can make it sound like a speech by repeating the promise. The scientific content is the same; the demonstration changes what the reader notices.",
         "limits": "Now the part people skip: the tool can be wrong. With three sentences, the statistics are mostly theater. With a common phrase, the AI-flavor score may get excited for no good reason. So the output is a debugging report, not a machine that knows who wrote the page. And if you borrow a living writer's voice, say that you borrowed it for practice.",
         "conclusion": "The useful result is not a magic number. It is a loop: make a claim, measure a few independent things, look at the examples, and change the draft. If you can't show the evidence, you probably don't understand the style yet."
+      },
+      "metrics": {
+        "cv": 0.339,
+        "p05": 6.1,
+        "p95": 19.8,
+        "iqr": 6.0,
+        "mattr": 0.766,
+        "ai_flavor": 15,
+        "similarity": 47,
+        "sentences": 23,
+        "units": 285,
+        "tail_reliable": true
       }
     }
   ]

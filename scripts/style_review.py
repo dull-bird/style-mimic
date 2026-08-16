@@ -118,16 +118,16 @@ def aiflavor(path):
     if res['sentences'] >= 8 and enough_length_variation and cv < 0.45:
         pts = 15
         score += pts
-        hits.append((f'方差塌缩（CV={round(cv,2)} < 0.45）', '—', '—', pts))
+        hits.append((f'方差塌缩（CV={round(cv,2)} < 0.45）', '—', '—', pts, '句长分布'))
     elif res['sentences'] >= 8 and enough_length_variation and cv < 0.55:
         score += 6
-        hits.append((f'节奏偏匀（CV={round(cv,2)}）', '—', '—', 6))
+        hits.append((f'节奏偏匀（CV={round(cv,2)}）', '—', '—', 6, '句长分布'))
     # 破折号密度
     dash = text.count('——') if lang == 'zh' else text.count('—') + text.count(' - ')
     dper = dash / total * 1000 if total else 0
     if dper > 8:
         score += 8
-        hits.append(('破折号密集', dash, round(dper, 2), 8))
+        hits.append(('破折号密集', dash, round(dper, 2), 8, '破折号计数'))
     score = min(round(score), 100)
     level = ('不可评分（无可分析单位）' if total == 0 else
              '低（像人写的）' if score < 15 else
