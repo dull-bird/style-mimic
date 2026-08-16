@@ -31,6 +31,8 @@ description: "基于文体学（stylistics）与语料库语言学的文风模�
 ```bash
 python3 scripts/style_analyze.py sample1.txt sample2.txt            # 各样本指标
 python3 scripts/style_analyze.py sample.txt draft.txt --compare     # 成品与样本偏差对照
+python3 scripts/style_review.py aiflavor draft.txt                  # AI 味测量（review 用）
+python3 scripts/style_review.py sim sample.txt draft.txt            # 文风相似度分层分解
 ```
 
 脚本输出：句长分布（均值/标准差/p10–p90/分桶）、每句小句数（形合度）、句类比例、TTR、五类标记每千单位频率、高频实词。安装 jieba 后中文高频词更准确（可选，非必需）。
@@ -49,6 +51,7 @@ python3 scripts/style_analyze.py sample.txt draft.txt --compare     # 成品与�
 
 - 写作时把档案的"硬约束"（句长区间、标记频率区间、禁用句式）放在手边。
 - 初稿完成后跑 `--compare`：任何标记频率偏差超过 2 倍或句长分布明显漂移的项，逐项修正后重跑，直到指标落入样本区间。
+- 定稿前跑 `style_review.py aiflavor`（防 AI 腔回流）和 `style_review.py sim`（相似度 ≥85 为同一声纹区间）。
 - 最后一遍人工读：修辞和语篇节奏只能人耳校验。
 
 ## 红线

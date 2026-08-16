@@ -8,6 +8,7 @@
 - `references/style-dimensions.md` — 六层分析框架手册（词汇/句法/修辞/衔接语篇/立场介入/叙事声音 + 中文计量 + LLM 失败模式 + 偏差判据 + 文献出处）
 - `references/profile-template.md` — 风格档案模板（Claim–Evidence 对 + 平均作者差分 + 体裁校准）
 - `scripts/style_analyze.py` — 定量分析脚本（中英文，纯标准库，零依赖）：句长分布/句类/小句数/功能标记/MATTR/代词向量/句间重叠/标点指纹 + `--compare` 偏差对照（含方差塌缩报警）
+- `scripts/style_review.py` — review 工具：`aiflavor` 测 AI 味（WP:AISIGNS 模式清单 + 方差塌缩，0–100 启发式评分，逐项可追溯）；`sim` 测双文本文风相似度（六层距离分解，≥85 同一声纹）
 - `profiles/` — 已提取的风格档案（含 oakley-a-mind-for-numbers 示例）
 
 ## 快速开始
