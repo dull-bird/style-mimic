@@ -1,0 +1,202 @@
+{
+  "title": "一题十一声：把文风从感觉变成可校验的分布",
+  "subtitle": "An eleven-voice teaching paper on the style-mimic framework",
+  "thesis": "文风不是一层贴在内容表面的滤镜，而是词汇、句法、节奏、衔接、立场与叙事声音共同形成的选择分布；可靠的仿写应固定语义骨架，改变声纹，并用多信号 review 检查漂移。",
+  "units": {
+    "abstract": "摘要 / Abstract",
+    "method": "方法 / Method",
+    "case": "案例 / Case",
+    "limits": "限制 / Limits",
+    "conclusion": "结论 / Conclusion"
+  },
+  "ethics": "以下文本均为教学用 pastiche（仿写练习），不是原作者作品，不代表作者本人观点；活人作者版本尤其只用于分析语言选择，不用于冒充、署名或伪造出处。",
+  "voices": [
+    {
+      "id": "su_shi",
+      "name": "苏轼",
+      "language": "中文",
+      "era": "北宋",
+      "register": "旷达说理 / 游记式议论",
+      "living_author": false,
+      "accent": "以小事起兴，转入理趣；句子舒展，偶有自嘲与旷达的回旋。",
+      "disclaimer": "教学仿写：借鉴宋代士大夫的旷达议论，不是苏轼原文。",
+      "sections": {
+        "abstract": "夫文犹水也，水之为物，遇方则方，遇圆则圆，而其源流与缓急，终有可观者。今以 style-mimic 试论文风：不徒求一语之肖，而取词汇、句法、节奏、转折、主客之相与，合为一幅声纹之图。于是同一论文，易其声而不易其理，庶几知文风非玄谈，乃可量之分布也。",
+        "method": "其法有六层。先观用字，次观句法；再看譬喻如何落地，语篇如何相承，作者如何向读者拱手或招手，末观叙事之眼从何处来。又置一篇平常文字为对照，以作者之数减平常之数，所得才近于作者。至于校验，不可只看平均句长；长短之起伏，正如江上风帆，亦须记其尾部。",
+        "case": "譬如同说“工具把文风变成可复核的证据”。学究曰：“该框架整合六类特征。”说书人曰：“先把文章拆成几件可数的小物事，再看看它们如何合奏。”理未改而声已迁，这便是仿写的要害：换其行旅，不换其目的地。",
+        "limits": "然天下之物，过量则失真。短文三五句，拿标准差来论风，犹以一叶测秋；AI 味若只凭一个词，也如见客衣上尘埃便断其为旅人。故工具只作案头小友，须报样本之短、指标之疑，并让人读其全文。活人文风更不可盗名，借来练笔可，冒作真迹不可。",
+        "conclusion": "是故文风非一枚印章，盖在纸上便了；它更像一条河，有深浅，有回湾，有忽然的急流。把河道量给人看，未必损其风致，反使我们知道何处是水势，何处只是岸边的芦苇。"
+      }
+    },
+    {
+      "id": "tongcheng",
+      "name": "桐城派",
+      "language": "中文",
+      "era": "清代",
+      "register": "义法 / 古文说理",
+      "living_author": false,
+      "accent": "义理为骨，考据为据，辞气端整；先立论，继分层，终归结。",
+      "disclaimer": "教学仿写：借鉴桐城古文的义法与章法，不是姚鼐等人的原文。",
+      "sections": {
+        "abstract": "文之有体，犹器之有制。其形虽殊，而所以为文之理一也。今论 style-mimic 之术，主张以可考之语言特征，辨作者之声纹；不徒取其辞貌，而审其布局、节奏与立意。故同一论文，内容守其常，而辞气随其人，斯可谓有法而不拘法。",
+        "method": "其法凡六：一曰词汇，察其雅俗与密度；二曰句法，察其长短与承接；三曰修辞，察譬喻、反复与设问；四曰篇章，察起承转合；五曰立场，察作者与读者之远近；六曰叙事，察其所言者与所见者。又以平均作者为衡，取目标文本与衡文之差；校验则兼顾均值、离散及尾端，不以一端概全。",
+        "case": "同一事实曰：“框架将文风转为可复核证据。”平直者直陈其事，古文者约之为：“析辞以见体，验数以知声。”前者贵达，后者贵简而有骨。其所指者一，而其所以指之者异；文体之辨，正在此不在彼。",
+        "limits": "然法有所不能尽。样本过短，则分布未成；词表过窄，则误伤难免；体裁之规，亦不可误认作作者之声。故输出须列证据、报置信边界，且以人工复核为终。至于活人作者之风，宜明言为拟作，不可混淆出处。",
+        "conclusion": "综上，仿写之道不在摹其一字，而在得其所以然。守共同之义，察独有之法，量其分布而审其偏差，则文风可学，且不失其为学。"
+      }
+    },
+    {
+      "id": "wang_bo",
+      "name": "王勃",
+      "language": "中文",
+      "era": "初唐",
+      "register": "骈文 / 对偶抒怀",
+      "living_author": false,
+      "accent": "对偶、铺陈、远近相映；从宏阔景象落到具体论点。",
+      "disclaimer": "教学仿写：借鉴初唐骈文的对偶与铺陈，不是王勃原文。",
+      "sections": {
+        "abstract": "时有古今，文有声色；理同一脉，辞分千姿。style-mimic 以六层之目，量词汇之疏密，察句法之张弛，辨修辞之明暗，考篇章之往复，听作者之立场，寻叙事之焦点。于是一题可成十一声，万象同归于可复核之证。",
+        "method": "先立骨架，后换衣冠；先定语义，后调声律。以平均作者为镜，见其通行处；以目标作者为尺，量其偏出处。均值可示方向，尾部方见波澜；模式可供提示，证据方能落地。六层相参，众信号相合，方不至以一叶而知秋，以一词而断文。",
+        "case": "同言其理：有人说“框架测量风格”，有人说“文章有河山，指标是航图”。前者如尺，后者如舟；尺量其长，舟渡其远。内容之山河未改，表达之舟楫已更，读者遂见同一命题的不同天光。",
+        "limits": "然而短章不足以成谱，孤证不足以成案；体裁有其疆界，作者有其微声。AI 的整齐可能是塌缩，人类的整齐也可能只是练习；故须区分提示与判决，区分仿写与冒名，区分统计的明白与文学的余韵。",
+        "conclusion": "愿此框架如一座小楼：以数据为栏，以证据为窗，以伦理为门。登楼而望，见文风各有峰峦；回身而下，知一切测量仍为阅读服务。"
+      }
+    },
+    {
+      "id": "luxun",
+      "name": "鲁迅",
+      "language": "中文",
+      "era": "现代",
+      "register": "杂文 / 冷峻反讽",
+      "living_author": false,
+      "accent": "短促而带刺，先承认常识，再拆穿偷懒；讽刺对象是模糊和自信。",
+      "disclaimer": "教学仿写：借鉴现代杂文的冷峻反讽，不是鲁迅原文。",
+      "sections": {
+        "abstract": "人们向来喜欢说“文风不可说”。这句话很方便，因为不可说便不用测，不用改，也不用承认自己只是把常套话换了一个顺眼的标题。style-mimic 偏要把它拆开：词、句、节奏、连接、立场和叙事视角，逐项留下证据。",
+        "method": "办法并不神秘。先拿同类的普通文字作底色，再看某个作者多出来什么、少掉什么；不能只看平均值，因为机器最会把起伏磨平，磨成一块“通用的人类”。还要看 p05、p95、IQR 和 MAD，免得两篇文章平均一样，就误以为它们说话的骨头也一样。",
+        "case": "例如，“框架可以测风格”这句话，平庸的写法会说它“赋能表达、构建闭环、开启新篇章”。把这些词删掉，换成一句更不体面的：“你写得像谁，先别急着争；把句子数一数，证据自然会露头。”事实未变，姿态变了。",
+        "limits": "当然，工具也会犯错。三句短文的 CV 没有资格审判一个作者；一个“值得注意”也不能单独定罪。所谓 AI 味只是 review 提示，不是法庭判决。至于拿活人的名字做招牌，更是把练习变成冒充，应该在门口就写清楚。",
+        "conclusion": "所以文风不是神秘的灵光，也不是菜单上的标签。它是一串选择，带着习惯，偶尔带着毛刺。好的工具不是替你宣布“像”或“不像”，而是把那根毛刺递到你手里。"
+      }
+    },
+    {
+      "id": "hu_shi",
+      "name": "胡适",
+      "language": "中文",
+      "era": "现代",
+      "register": "白话文 / 实证论说",
+      "living_author": false,
+      "accent": "白话、清楚、分点说明；强调先做小实验，再谈大结论。",
+      "disclaimer": "教学仿写：借鉴白话文运动以来的清楚论说，不是胡适原文。",
+      "sections": {
+        "abstract": "我们要研究文风，最好先把“文风”这个大名词拆成几个小问题。一个作者喜欢用什么词？句子长短怎样变化？怎样连接上下文？怎样称呼读者？style-mimic 的主张很简单：这些问题都可以先测量，再讨论。",
+        "method": "我们的步骤有三点。第一，取同一作者、同一体裁的样本；第二，用六层指标建立画像，并和普通作者基线比较；第三，把新稿放回区间里检查。这里特别要看尾部：平均句长相同，不等于一句长一句短的节奏相同。样本太少时，应该诚实地说“不足以判断”。",
+        "case": "同一句意思可以这样写：“这个框架把文风变成证据。”也可以这样写：“我们不凭印象判断；我们把词汇和句子列出来，看看哪些差异真的存在。”第二句多了一点行动步骤，读者因此知道下一步该做什么。",
+        "limits": "当然，这不是说数字可以代替阅读。比喻是否自然，段落是否有气势，反讽是否有效，仍要靠人来判断。AI 味清单也只能指出可疑的模式，不能证明作者身份。活人作者的仿写，更应说明是练习。",
+        "conclusion": "我的结论是：文风可以研究，但不能偷懒研究；可以量化，但不能迷信数字。先把问题说清楚，先做能复算的小实验，才有资格谈更大的文学判断。"
+      }
+    },
+    {
+      "id": "qian_zhongshu",
+      "name": "钱钟书",
+      "language": "中文",
+      "era": "现代",
+      "register": "博喻 / 机智讥诮",
+      "living_author": false,
+      "accent": "中外典故与日常比喻并置，机锋从定义的缝隙里出来。",
+      "disclaimer": "教学仿写：借鉴机智博喻与学者式讥诮，不是钱钟书原文。",
+      "sections": {
+        "abstract": "文风很像人的指纹，然而指纹学家不会因为两个人都有五根手指，便宣布他们是同一位。通常的写作建议只告诉你“清楚、自然、有感染力”，仿佛医生的处方是“健康、快乐、活着”。style-mimic 稍微不那么客气：它把风格拆成若干可数的偏好，再问这些偏好是否属于某个人，而非全体作者的公共财产。",
+        "method": "它先造一面平均作者的镜子。镜子里的“因此”“值得注意”并不自动属于谁；目标作者减去这层公共噪音，剩下的差额才比较像个人风格。又因为均值有时是最会骗人的证人，工具还请来 p05、p95、IQR、MAD 等几位性格各异的统计亲戚，让句子的长短不至于被平均数集体收买。",
+        "case": "同一事实若写成学术报告，是“框架提供可复核的风格特征”；若写成读书人的闲谈，则可能是：“我们把文风请下神坛，给它量一量鞋码；鞋合不合脚，还须让它走两步。”论点未换，鞋子换了，读者却从鞋底的纹路认出说话人的脾气。",
+        "limits": "当然，统计工具也有它的社交礼貌：遇到三句话的样本，它不应装作认识你多年；遇到一个套话，它也不应立刻写信给检察院。AI 味评分只是编辑桌上的铅笔圈，不是作者身份证。活人风格更像借来的西装，穿着练习可以，拿去办证不行。",
+        "conclusion": "所以，文风研究的理想状态不是把文章压扁成表格，而是让表格替文章指出几处值得重读的地方。数字负责敲门，阅读负责开门；若两者都在，风格才没有被指标或玄学单独绑架。"
+      }
+    },
+    {
+      "id": "barbara_oakley",
+      "name": "Barbara Oakley",
+      "language": "English",
+      "era": "Contemporary",
+      "register": "Friendly science / learning analogy",
+      "living_author": true,
+      "accent": "Warm, concrete, learner-facing; turns abstract style features into everyday learning metaphors.",
+      "disclaimer": "Teaching pastiche: inspired by approachable learning-science explanation, not written by Barbara Oakley.",
+      "sections": {
+        "abstract": "Think of a writer's style as a learning habit. It is not one magic phrase stored in a drawer; it is a pattern built from many small choices—word texture, sentence rhythm, transitions, stance, and point of view. Style-mimic turns those choices into a profile, so a writer can practice a voice without pretending to become the person who first used it.",
+        "method": "Start with a clean sample, then look for patterns that repeat across the whole page. A six-layer profile works like a study schedule: vocabulary is the material, syntax is the practice rhythm, rhetoric supplies the memorable hook, discourse keeps ideas connected, stance manages the distance from the reader, and narrative voice decides where the camera sits. Compare the writer with an average baseline, and check the tails—not just the average—because a good rhythm needs variation.",
+        "case": "Here is the same idea in a learner-friendly form: “The framework makes style measurable.” Now turn it into a small experiment: write the sentence once in a formal register, once with a story, and once with a direct instruction. The claim stays put; the pathway to it changes. That is the useful part of imitation: you are training a transferable move, not copying a surface.",
+        "limits": "A tiny sample is like trying to learn a song from two notes. Its standard deviation can look dramatic or perfectly flat by accident. The AI-flavor review is therefore a set of study cues, not a detector. It should point to patterns you can revise, while a human reader checks whether the passage still sounds alive. Living writers must be named as teaching references, never impersonated.",
+        "conclusion": "The payoff is practical: once style is written as a set of observable choices, you can practice one choice at a time. Keep the idea constant, change the voice, measure the drift, and then read the result aloud. That loop turns a vague feeling into a skill you can improve."
+      }
+    },
+    {
+      "id": "donald_trump",
+      "name": "Donald Trump",
+      "language": "English",
+      "era": "Contemporary",
+      "register": "Rally speech / emphatic repetition",
+      "living_author": true,
+      "accent": "Short emphatic clauses, repetition, superlatives, direct audience address; used here as analysis practice.",
+      "disclaimer": "Teaching pastiche: a rhetorical exercise, not a statement by Donald Trump.",
+      "sections": {
+        "abstract": "We have a style problem, and it is a big one. People say style is mysterious. It is not mysterious. We can measure it, we can compare it, and we can make the writing much better. The framework finds the choices that make a voice recognizable—and it does it with evidence.",
+        "method": "We look at the words. We look at the sentence rhythm. We look at the transitions, the reader words, the confidence words, and the point of view. Then we compare the draft with a real baseline. Not a vague baseline—a measured baseline. And we check the tails, because a text that is smooth all the way through can be smooth in the wrong way.",
+        "case": "The message is simple: style-mimic makes style review practical. One version says, “The system computes six families of features.” Another says, “We take the writing apart, feature by feature, and we show you what changed.” Same message. Stronger delivery. Clearer delivery. That is the point.",
+        "limits": "There are limits. A short sample is not enough. One fashionable word is not enough. A score is not proof. We do not use this to claim who wrote something, and we do not use a living person's name to fake an endorsement. We use it to review, to compare, and to improve.",
+        "conclusion": "The result is a better process: keep the idea, change the voice, measure the difference. It is transparent. It is practical. And when the numbers disagree with the reader, we read again. That is how you get writing that works."
+      }
+    },
+    {
+      "id": "barack_obama",
+      "name": "Barack Obama",
+      "language": "English",
+      "era": "Contemporary",
+      "register": "Civic speech / balanced cadence",
+      "living_author": true,
+      "accent": "Measured parallelism, inclusive we, moral stakes, gradual movement from evidence to shared responsibility.",
+      "disclaimer": "Teaching pastiche: inspired by civic rhetorical structure, not written by Barack Obama.",
+      "sections": {
+        "abstract": "We begin with a modest proposition: style is not a costume placed over an idea. It is the record of choices made again and again—choices about words, rhythm, connection, distance, and the eyes through which a story is seen. Style-mimic gives us a way to study those choices, so that imitation can become practice rather than impersonation.",
+        "method": "The work starts with evidence. We examine six layers of language, then compare an author's profile with an average baseline. We measure not only the center of the distribution, but its edges: the short sentences and the long ones, the quiet turns and the sudden emphases. We combine signals because no single measure can carry the whole burden of judgment.",
+        "case": "Consider one shared claim: “A framework can make style reviewable.” In one voice, it becomes a specification. In another, a story. In another, a call to action. The claim remains stable, but the relationship with the reader changes. That difference is not a flaw in language; it is one of language's ways of making room for many kinds of attention.",
+        "limits": "We should also be clear about what the framework cannot do. A small sample cannot speak with statistical confidence. A list of familiar phrases cannot prove authorship. And a living writer's voice cannot be treated as public property simply because it can be described. Responsible practice names the exercise, shows the evidence, and leaves room for uncertainty.",
+        "conclusion": "The promise is not that a machine will settle the question of voice. The promise is that writers and readers can ask better questions: Which choices make this passage distinctive? Which changes are caused by genre? What evidence would make us revise our view? In that work, measurement becomes a partner to judgment, not a substitute for it."
+      }
+    },
+    {
+      "id": "albert_einstein",
+      "name": "Albert Einstein",
+      "language": "English",
+      "era": "20th century",
+      "register": "Reflective scientific essay",
+      "living_author": false,
+      "accent": "Thought experiment, conceptual analogy, calm paradox; links measurable form to human interpretation.",
+      "disclaimer": "Teaching pastiche: inspired by reflective scientific exposition, not Albert Einstein's writing.",
+      "sections": {
+        "abstract": "When we speak of style, we often imagine an invisible quality, as if a text possessed a private atmosphere. Yet an atmosphere is produced by conditions. The vocabulary, the length and variation of sentences, the manner of connecting ideas, and the position from which a narrative observes the world form a measurable field of choices. Style-mimic studies this field without confusing its map with the landscape.",
+        "method": "Let the ordinary writer be our reference frame. The profile of a particular writer is then not the collection of all features present in the text, but the displacement from this frame. We must also observe the fluctuations. Two texts may have the same mean sentence length while one contains a broad distribution and the other a narrow one. The difference is analogous to motion: the average position does not describe the path.",
+        "case": "Suppose the proposition is that the framework makes style reviewable. In a technical voice, it is a measurement statement. In a reflective voice, it becomes a question: can the qualities we feel in prose be represented by a set of observable relations? The proposition has not changed; the coordinate system of attention has changed.",
+        "limits": "The analogy has limits. A text is not a gas, and a reader is not an instrument with a fixed calibration. Short samples yield unstable estimates; lexical patterns can be common to many writers; and human judgment remains part of the experiment. The framework therefore reports uncertainty and treats living-author imitation as an explicitly labeled exercise.",
+        "conclusion": "We may say, then, that style is neither entirely subjective nor entirely mechanical. It is a relation between choices, distributions, context, and a reader. Measurement can illuminate that relation, provided we remember that an illuminated object is not thereby exhausted."
+      }
+    },
+    {
+      "id": "richard_feynman",
+      "name": "Richard Feynman",
+      "language": "English",
+      "era": "20th century",
+      "register": "Plainspoken science / demystification",
+      "living_author": false,
+      "accent": "Conversational explanation, concrete toy example, distrust of impressive labels without a test.",
+      "disclaimer": "Teaching pastiche: inspired by plainspoken scientific explanation, not Richard Feynman's writing.",
+      "sections": {
+        "abstract": "People talk about style as if it were a secret ingredient. Fine—then let's do an experiment. Take a piece of writing and count some things: the words, the sentence lengths, the turns, the pronouns, the punctuation. You won't have the whole style, but you will have something you can check. That is what style-mimic is for.",
+        "method": "Here is the trick. Don't start by asking, “What does this author feel like?” Start with a sample and a boring baseline. Then ask what is unusually high or low. Check the long tail of sentence lengths, not just the average. If the text has six kinds of signals pointing in the same direction, pay attention. If one word is waving its arms, don't call it a theorem.",
+        "case": "Take the sentence “The framework measures style.” You can make it sound academic by adding definitions. You can make it sound like a lesson by adding a concrete experiment. You can make it sound like a speech by repeating the promise. The scientific content is the same; the demonstration changes what the reader notices.",
+        "limits": "Now the part people skip: the tool can be wrong. With three sentences, the statistics are mostly theater. With a common phrase, the AI-flavor score may get excited for no good reason. So the output is a debugging report, not a machine that knows who wrote the page. And if you borrow a living writer's voice, say that you borrowed it for practice.",
+        "conclusion": "The useful result is not a magic number. It is a loop: make a claim, measure a few independent things, look at the examples, and change the draft. If you can't show the evidence, you probably don't understand the style yet."
+      }
+    }
+  ]
+}
